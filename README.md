@@ -45,7 +45,22 @@ They all do the same thing.
 
 ## 📦 Installation
 
-### 1. Manual Install
+### 1. Quick Install (Recommended)
+Run this in PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/<YourUsername>/Open-Cursor/main/install.ps1 | iex
+```
+
+This will:
+- Download the `Open-Cursor` function
+- Add it to your PowerShell profile (if not already there)
+- Reload your profile automatically
+- Let you use `cop`, `copen`, or `Open-Cursor` immediately
+
+---
+
+### 2. Manual Install
 1. Download [`Open-Cursor.ps1`](./Open-Cursor.ps1) from this repo.
 2. Open your PowerShell profile in Notepad:
 
@@ -59,20 +74,6 @@ They all do the same thing.
    ```powershell
    . $PROFILE
    ```
-
----
-
-### 2. Quick Install (One-Liner)
-Run this in PowerShell:
-
-```powershell
-irm https://raw.githubusercontent.com/<YourUsername>/Open-Cursor/main/install.ps1 | iex
-```
-
-This will:
-- Download the `Open-Cursor` function
-- Add it to your PowerShell profile
-- Reload your profile
 
 ---
 

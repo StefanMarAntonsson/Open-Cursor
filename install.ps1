@@ -15,9 +15,20 @@ if (-not (Test-Path $PROFILE)) {
     New-Item -ItemType File -Path $PROFILE -Force | Out-Null
 }
 
-# Append the function to the profile
-Write-Host "🛠 Adding Open-Cursor function to your PowerShell profile..." -ForegroundColor Cyan
-Add-Content -Path $PROFILE -Value "`n$functionCode`n"
+# Read the current profile content
+$profileContent = Get-Content -Path $PROFILE -Raw
 
-Write-Host "✅ Open-Cursor installed!" -ForegroundColor Green
-Write-Host "ℹ️ Reload your profile with: . `$PROFILE" -ForegroundColor Yellow
+# Check if the function already exists
+if ($profileContent -match "function\s+Open-Cursor") {
+    Write-Host "ℹ️ Open-Cursor function already exists in your profile. Skipping add." -ForegroundColor Yellow
+} else {
+    Write-Host "🛠 Adding Open-Cursor function to your PowerShell profile..." -ForegroundColor Cyan
+    Add-Content -Path $PROFILE -Value "`n$functionCode`n"
+    Write-Host "✅ Open-Cursor installed!" -ForegroundColor Green
+}
+
+# Auto-reload the profile so the function is available immediately
+Write-Host "🔄 Reloading your PowerShell profile..." -ForegroundColor Cyan
+. $PROFILE
+
+Write-Host "🎉 Done! You can now use 'cop', 'copen', or 'Open-Cursor' right away." -ForegroundColor Green
