@@ -49,7 +49,7 @@ They all do the same thing.
 Run this in PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/<YourUsername>/Open-Cursor/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/StefanMarAntonsson/Open-Cursor/main/install.ps1 | iex
 ```
 
 This will:
